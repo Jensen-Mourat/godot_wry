@@ -93,7 +93,7 @@ impl IControl for WebView {
             incognito: self.incognito,
             focused: self.focused,
             ..Default::default()
-        })  .with_transparent(true)
+        }).with_transparent(true)
             .with_ipc_handler(move |req: Request<String>| {
                 let body = req.body().as_str();
                 base.clone().emit_signal("ipc_message".into(), &[body.to_variant()]);
